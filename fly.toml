@@ -4,18 +4,18 @@
 #
 
 app = 'reggio-registers-backend-api'
-primary_region = 'iad'
+primary_region = 'lax'
 
 [build]
 
 [env]
   PORT = '3000'
-  SCOPES = 'write_metaobjects,write_products,write_app_proxy'
+  SCOPES = 'write_metaobjects,write_products,write_app_proxy,write_files'
   SHOPIFY_API_KEY = 'fed8c28417a14ede3566fb8193455ed2'
   SHOPIFY_APP_URL = 'https://reggio-registers-backend-api.fly.dev'
 
 [processes]
-  app = 'node ./dbsetup.js npm run docker-start'
+  app = 'node ./dbsetup.js npm run start'
 
 [[mounts]]
   source = 'data'

@@ -2,8 +2,14 @@
 #
 # For more details, see: https://litestream.io/reference/config/
 #
+logging:
+  level: info
+  type: text
+  stderr: false
+
 dbs:
   - path: /data/dev.sqlite
+    #monitor-interval: 10s
     replicas:
       - type: s3
         endpoint: $AWS_ENDPOINT_URL_S3
@@ -11,3 +17,4 @@ dbs:
         path: litestream/dev.sqlite
         access-key-id: $AWS_ACCESS_KEY_ID
         secret-access-key: $AWS_SECRET_ACCESS_KEY
+        #sync-interval: 20s
